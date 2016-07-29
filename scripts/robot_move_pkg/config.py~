@@ -1,0 +1,8 @@
+robot_state_pkg_path = "/home/mrxu/basketball/src/basketball_strage/scripts/robot_state_pkg/"
+linear_move_speed = 0.8
+linear_move_stop_tolerance = 0.01
+
+linear_move_x_speed = 0.5
+turn_angular_speed = 0.8
+turn_angular_scale = 1.0
+turn_augular_stop_tolerance = 5.0
