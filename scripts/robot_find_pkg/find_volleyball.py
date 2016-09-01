@@ -38,7 +38,11 @@ class find_volleyball(object):
         self.find_ball_client.wait_for_service()
         move_velocity = g_msgs.Twist()
 <<<<<<< HEAD
+<<<<<<< HEAD
         move_velocity.angular.z = 0.42
+=======
+        move_velocity.angular.z = 0.3
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
 =======
         move_velocity.angular.z = 0.3
 >>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
@@ -48,7 +52,10 @@ class find_volleyball(object):
         theta = -res.theta
         has_ball = res.has_ball
 <<<<<<< HEAD
+<<<<<<< HEAD
         if_volleyball = res.if_volleyball
+=======
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
 =======
 >>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
         r = rospy.Rate(30)
@@ -61,10 +68,16 @@ class find_volleyball(object):
             theta = -res.theta
             has_ball = res.has_ball
 <<<<<<< HEAD
+<<<<<<< HEAD
             if_volleyball = res.if_volleyball
             if has_ball == True and if_volleyball == True:
                 flag += 1
             if flag == 2:
+=======
+            if has_ball == True:
+                flag += 1
+            if flag == 5:
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
 =======
             if has_ball == True:
                 flag += 1
@@ -80,7 +93,11 @@ class find_volleyball(object):
         self.find_ball_client.wait_for_service()
         move_velocity = g_msgs.Twist()
 <<<<<<< HEAD
+<<<<<<< HEAD
         move_velocity.angular.z = -0.38
+=======
+        move_velocity.angular.z = -0.3
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
 =======
         move_velocity.angular.z = -0.3
 >>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
@@ -90,7 +107,10 @@ class find_volleyball(object):
         theta = -res.theta
         has_ball = res.has_ball
 <<<<<<< HEAD
+<<<<<<< HEAD
         if_volleyball = res.if_volleyball
+=======
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
 =======
 >>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
         r = rospy.Rate(30)
@@ -103,10 +123,16 @@ class find_volleyball(object):
             theta = -res.theta
             has_ball = res.has_ball
 <<<<<<< HEAD
+<<<<<<< HEAD
             if_volleyball = res.if_volleyball
             if has_ball == True and if_volleyball == True:
                 flag += 1
             if flag == 3:
+=======
+            if has_ball == True:
+                flag += 1
+            if flag == 5:
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
 =======
             if has_ball == True:
                 flag += 1
@@ -118,7 +144,11 @@ class find_volleyball(object):
         return (x,y,theta)
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     #直接获取球位置信息
+=======
+    #直接获取排球位置信息
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
 =======
     #直接获取排球位置信息
 >>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
@@ -128,6 +158,7 @@ class find_volleyball(object):
         x = res.z
         y = -res.x
         theta = -res.theta
+<<<<<<< HEAD
 <<<<<<< HEAD
         has_ball = res.has_ball
         return (x,y,theta,has_ball)
@@ -153,6 +184,10 @@ class find_volleyball(object):
         return (x,y,theta)
 
 >>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
+=======
+        return (x,y,theta)
+
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
     #以一定的圆心，半径，以圆弧行进的方式检测排球
     #用于检测边线上的排球
     def find_ball_by_line(self):
@@ -169,7 +204,11 @@ class find_volleyball(object):
         y = -res.x
         theta = -res.theta
 <<<<<<< HEAD
+<<<<<<< HEAD
         has_ball = res.if_volleyball
+=======
+        has_ball = res.has_ball
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
 =======
         has_ball = res.has_ball
 >>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
@@ -181,7 +220,11 @@ class find_volleyball(object):
             y = -res.x
             theta = -res.theta
 <<<<<<< HEAD
+<<<<<<< HEAD
             has_ball = res.if_volleyball
+=======
+            has_ball = res.has_ball
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
 =======
             has_ball = res.has_ball
 >>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
@@ -190,7 +233,11 @@ class find_volleyball(object):
             #如果球的y轴数据大于0.1,则判定为不是排球
             #原因：图像部分以球直径来判别排球和篮球，在一定角度下篮球与排球半径相同。当正对球时，可以保证检测的准确性
 <<<<<<< HEAD
+<<<<<<< HEAD
             if has_ball == True and (abs(y) < 0.1):
+=======
+            if has_ball == True and (abs(y) < 0.08):
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
 =======
             if has_ball == True and (abs(y) < 0.08):
 >>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592

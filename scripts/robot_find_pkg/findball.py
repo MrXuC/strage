@@ -103,7 +103,11 @@ class findBall(object):
         x = res.z
         y = -res.x
 <<<<<<< HEAD
+<<<<<<< HEAD
         theta = -res.theta*0.95
+=======
+        theta = -res.theta
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
 =======
         theta = -res.theta
 >>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592

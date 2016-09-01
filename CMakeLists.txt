@@ -6,6 +6,7 @@ find_package(catkin REQUIRED COMPONENTS
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 #  ros_smach
 =======
   smach_ros
@@ -13,6 +14,9 @@ find_package(catkin REQUIRED COMPONENTS
 =======
   smach_ros
 >>>>>>> d41aa20b485db43a3c212e87195b10342618c153
+=======
+#  ros_smach
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
 =======
 #  ros_smach
 >>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592

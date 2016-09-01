@@ -29,7 +29,11 @@ class low_speed_linear_move(object):
         #设置移动过程中的速度
         self.speed = config.low_linear_speed
 <<<<<<< HEAD
+<<<<<<< HEAD
 
+=======
+        
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
 =======
         
 >>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
@@ -50,6 +54,7 @@ class low_speed_linear_move(object):
         goal_distance = math.sqrt(math.pow(x, 2)+math.pow(y, 2))
         #如果x方向距离为零，则直接设置y方向速度
 <<<<<<< HEAD
+<<<<<<< HEAD
         vx = 0.0
         if x == 0.0:
             vy = config.linear_move_speed
@@ -65,6 +70,8 @@ class low_speed_linear_move(object):
 #            self.w_speed = yaw / goal_distance * move_speed_value
 #        move_velocity.angular.z = self.w_speed
 =======
+=======
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
         if x == 0.0:
             self.y_speed = config.linear_move_speed
         else:
@@ -78,6 +85,9 @@ class low_speed_linear_move(object):
         if goal_distance != 0:
             self.w_speed = yaw / goal_distance * move_speed_value
         move_velocity.angular.z = self.w_speed
+<<<<<<< HEAD
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
+=======
 >>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
         #获取启动前的x，y，yaw
         start_x, start_y, start_yaw = self.robot_state.get_robot_current_x_y_w()
@@ -95,8 +105,11 @@ class low_speed_linear_move(object):
                 distance_to_arrive_goal_x = abs(x) - distance_has_moved_x
                 distance_to_arrive_goal_y = abs(y) - distance_has_moved_y
 <<<<<<< HEAD
+<<<<<<< HEAD
                 #计算速度
                 self.x_speed, self.y_speed = self.cal_speed(distance_has_moved, goal_distance, vx, vy)
+=======
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
 =======
 >>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
                 if abs(distance_to_arrive_goal) <= self.stop_tolerance:
@@ -119,9 +132,15 @@ class low_speed_linear_move(object):
             self.rate.sleep()
         self.brake()
 <<<<<<< HEAD
+<<<<<<< HEAD
 #        current_yaw = self.robot_state.get_robot_current_yaw()
         #修正角度转动偏差，同时如果x，y均为零时转动角度
 #        self.accurate_turn_an_angular.turn(yaw - current_yaw + start_yaw)
+=======
+        current_yaw = self.robot_state.get_robot_current_yaw()
+        #修正角度转动偏差，同时如果x，y均为零时转动角度
+        self.accurate_turn_an_angular.turn(yaw - current_yaw + start_yaw)
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
 =======
         current_yaw = self.robot_state.get_robot_current_yaw()
         #修正角度转动偏差，同时如果x，y均为零时转动角度
@@ -141,8 +160,13 @@ class low_speed_linear_move(object):
     #def set_linear_speed(self,speed = 0):
     #    self.speed = speed;
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 
+=======
+		
+	
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
 =======
 		
 	
@@ -155,6 +179,7 @@ class low_speed_linear_move(object):
             angle += 2.0 * math.pi
         print('current angular is %s'%angle)
         return  angle
+<<<<<<< HEAD
 <<<<<<< HEAD
     def cal_speed(self, dis, goal, vx=0.0, vy=0.0):
         shit_begin = 0.12
@@ -173,15 +198,23 @@ class low_speed_linear_move(object):
 
 =======
 >>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
+=======
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
 
 if __name__ == '__main__':
     rospy.init_node('linear_move')
     move_cmd = low_speed_linear_move()
 <<<<<<< HEAD
+<<<<<<< HEAD
     move_cmd.move_to( x = 0, y=1)
     rospy.sleep(1.5)
     move_cmd.move_to(x= 0,y=-1)
 
+=======
+    move_cmd.move_to( x = 1,yaw = 1.57)
+    move_cmd.move_to(x= -1, yaw= -1.57)
+   
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
 =======
     move_cmd.move_to( x = 1,yaw = 1.57)
     move_cmd.move_to(x= -1, yaw= -1.57)

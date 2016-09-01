@@ -1,6 +1,9 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
 =======
 >>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
 #!/usr/bin/env python 
@@ -16,7 +19,11 @@ robot_state_pkg_path = '/home/mrxu/basketball/src/basketball_strage/scripts/'
 
 #设置直线速度
 <<<<<<< HEAD
+<<<<<<< HEAD
 linear_move_speed = 0.8 
+=======
+linear_move_speed = 0.64
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
 =======
 linear_move_speed = 0.64
 >>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
@@ -28,7 +35,11 @@ high_speed_stop_tolerance = 0.03
 low_speed_move_stop_tolerance = 0.04
 #设置转弯的速度
 <<<<<<< HEAD
+<<<<<<< HEAD
 high_turn_angular_speed = 0.5
+=======
+high_turn_angular_speed = 0.3
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
 =======
 high_turn_angular_speed = 0.3
 >>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
@@ -64,6 +75,7 @@ go_along_circle_speed = 0.21
 #角度阈值
 go_along_circle_angular_tolerance = 0.02
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 =======
 >>>>>>> d41aa20b485db43a3c212e87195b10342618c153
@@ -79,5 +91,7 @@ turn_augular_stop_tolerance = 5.0	#角度值，代表停止的误差值
 >>>>>>> d41aa20b485db43a3c212e87195b10342618c153
 =======
 >>>>>>> d41aa20b485db43a3c212e87195b10342618c153
+=======
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
 =======
 >>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592

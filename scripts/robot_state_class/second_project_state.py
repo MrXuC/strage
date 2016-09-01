@@ -27,9 +27,12 @@ class Return(smach.State):
 
     def execute(self, ud):
 <<<<<<< HEAD
+<<<<<<< HEAD
         if self.preempt_requested():
             self.service_preempt()
             return 'failed'
+=======
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
 =======
 >>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
         (current_x,current_y) = self.cmd_position.get_robot_current_x_y()
@@ -39,7 +42,10 @@ class Return(smach.State):
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 
+=======
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
 =======
 >>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
 ############################################
@@ -55,6 +61,7 @@ class Find_Column(smach.State):
 
     def execute(self, ud):
 <<<<<<< HEAD
+<<<<<<< HEAD
         if self.preempt_requested():
             self.service_preempt()
             return 'failed'
@@ -64,11 +71,16 @@ class Find_Column(smach.State):
 #在机器运行到标识柱附近时，根据图像服务得到的标识柱位置，调整机器位置，使其位于合适的投篮位置
 class Shoot_Adjust_1(smach.State):
 =======
+=======
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
         # (ud.column_x,ud.column_theta) = find_cylinder_state.find_cylinder_state().get_cylinder_status()
         return 'successed'
 
 #在机器运行到标识柱附近时，根据图像服务得到的标识柱位置，调整机器位置，使其位于合适的投篮位置
 class Shoot_Adjust(smach.State):
+<<<<<<< HEAD
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
+=======
 >>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
     def __init__(self):
         smach.State.__init__(self, outcomes=['successed', 'failed'], input_keys=['column_x', 'column_theta'])
@@ -76,6 +88,7 @@ class Shoot_Adjust(smach.State):
         rospy.loginfo("the Shoot Ajdust is initial OK!")
 
     def execute(self, ud):
+<<<<<<< HEAD
 <<<<<<< HEAD
         if self.preempt_requested():
             self.service_preempt()
@@ -109,6 +122,8 @@ class Shoot_Adjust_2(smach.State):
         self.move_cmd.move_to( yaw= column_theta*0.95)
         return 'successed'
 =======
+=======
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
         rospy.loginfo("x = %s"%ud.column_x)
         rospy.loginfo("theta = %s"%ud.column_theta)
         self.move_cmd.move_to( yaw=ud.column_theta)
@@ -116,6 +131,9 @@ class Shoot_Adjust_2(smach.State):
 
 
 
+<<<<<<< HEAD
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
+=======
 >>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
 
 
@@ -136,9 +154,12 @@ class Search_Ball(smach.State):
 
     def execute(self, ud):
 <<<<<<< HEAD
+<<<<<<< HEAD
         if self.preempt_requested():
             self.service_preempt()
             return 'failed'
+=======
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
 =======
 >>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
         (ud.ball_x,ud.ball_y,ud.ball_theta) = find_volleyball.find_volleyball().find_ball_turn()
@@ -153,10 +174,14 @@ class Search_Ball_CW(smach.State):
 
     def execute(self, ud):
 <<<<<<< HEAD
+<<<<<<< HEAD
         if self.preempt_requested():
             self.service_preempt()
             return 'failed'
         (ud.ball_x,ud.ball_y,ud.ball_theta) = find_volleyball.find_volleyball().find_ball_turn_cw()
+=======
+        (ud.ball_x,ud.ball_y,ud.ball_theta) = find_volleyball.find_volleyball.find_ball_turn_cw()
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
 =======
         (ud.ball_x,ud.ball_y,ud.ball_theta) = find_volleyball.find_volleyball.find_ball_turn_cw()
 >>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
@@ -166,6 +191,7 @@ class Find_Ball(smach.State):
     def __init__(self):
         smach.State.__init__(self, outcomes=['successed', 'failed']
                              , output_keys=['ball_x', 'ball_y', 'ball_theta'])
+<<<<<<< HEAD
 <<<<<<< HEAD
         self.move_cmd = move_in_robot.linear_move()
         rospy.loginfo('Start Find the ball!!')
@@ -178,10 +204,15 @@ class Find_Ball(smach.State):
         self.move_cmd.turn_to(ball_theta)
         self.move_cmd.move_to(x = math.sqrt(ball_x * ball_x + ball_y * ball_y) - 1.2)
 =======
+=======
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
         rospy.loginfo('Start Find the ball!!')
 
     def execute(self, ud):
         (ud.ball_x,ud.ball_y,ud.ball_theta) = findball.findBall().find_ball
+<<<<<<< HEAD
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
+=======
 >>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
         return 'successed'
 
@@ -198,9 +229,12 @@ class Search_Ball_By_Line(smach.State):
 
     def execute(self, ud):
 <<<<<<< HEAD
+<<<<<<< HEAD
         if self.preempt_requested():
             self.service_preempt()
             return 'failed'
+=======
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
 =======
 >>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
         (x,y,theta) = find_volleyball.find_volleyball().find_ball_by_line()
@@ -218,9 +252,12 @@ class Move_Point(smach.State):
 
     def execute(self, ud):
 <<<<<<< HEAD
+<<<<<<< HEAD
         if self.preempt_requested():
             self.service_preempt()
             return 'failed'
+=======
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
 =======
 >>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
         rospy.loginfo("x = %s"%ud.ball_x)
@@ -238,6 +275,7 @@ class Move_Adjust(smach.State):
 
     def execute(self, ud):
 <<<<<<< HEAD
+<<<<<<< HEAD
         if self.preempt_requested():
             self.service_preempt()
             return 'failed'
@@ -246,10 +284,15 @@ class Move_Adjust(smach.State):
         self.move_cmd.turn_to(theta*0.95)
         self.move_cmd.move_to(x = math.sqrt(x*x+y*y) - 0.25)
 =======
+=======
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
         (x,y,theta) = find_volleyball.find_volleyball().find_ball()
         rospy.loginfo("x = %s,y = %s ",x,y)
         self.move_cmd.turn_to(theta)
         self.move_cmd.move_to(x = math.sqrt(x*x+y*y) - 0.2)
+<<<<<<< HEAD
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
+=======
 >>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
         # self.move_cmd.move_to(y = y)
         # self.move_cmd.move_to(x = x - 0.2 )
@@ -267,9 +310,12 @@ class Shovel_Control_Down(smach.State):
 
     def execute(self, ud):
 <<<<<<< HEAD
+<<<<<<< HEAD
         if self.preempt_requested():
             self.service_preempt()
             return 'failed'
+=======
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
 =======
 >>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
         self.cmd_shovel.control_shovel(control_type= 3)
@@ -283,9 +329,12 @@ class Shovel_Control_Up(smach.State):
 
     def execute(self, ud):
 <<<<<<< HEAD
+<<<<<<< HEAD
         if self.preempt_requested():
             self.service_preempt()
             return 'failed'
+=======
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
 =======
 >>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
         self.cmd_shovel.control_shovel(control_type= 4)
@@ -300,11 +349,15 @@ class Shoot(smach.State):
 
     def execute(self, ud):
 <<<<<<< HEAD
+<<<<<<< HEAD
         if self.preempt_requested():
             self.service_preempt()
             return 'failed'
         rospy.sleep(1)
         self.cmd_shoot.shoot_ball()
+=======
+        # self.cmd_shoot.shoot_ball()
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
 =======
         # self.cmd_shoot.shoot_ball()
 >>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
@@ -319,11 +372,16 @@ class Shovel(smach.State):
 
     def execute(self, ud):
 <<<<<<< HEAD
+<<<<<<< HEAD
         if self.preempt_requested():
             self.service_preempt()
             return 'failed'
         self.cmd_shovel.control_shovel(control_type=0)
         rospy.sleep(0.5)
+=======
+        self.cmd_shovel.control_shovel(control_type=0)
+        rospy.sleep(2)
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
 =======
         self.cmd_shovel.control_shovel(control_type=0)
         rospy.sleep(2)
@@ -347,6 +405,7 @@ class Move_Point_To_Shoot(smach.State):
 
     def execute(self, ud):
 <<<<<<< HEAD
+<<<<<<< HEAD
         if self.preempt_requested():
             self.service_preempt()
             return 'failed'
@@ -355,10 +414,15 @@ class Move_Point_To_Shoot(smach.State):
         self.move_cmd.move_to(x = 7.6 - current_x,y = -8.5 - current_y)
         self.move_cmd.move_to(yaw = -math.pi / 6)
 =======
+=======
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
         self.move_cmd.move_to(x = 2.6)
         (current_x,current_y) = self.cmd_position.get_robot_current_x_y()
         self.move_cmd.move_to(x = 7.5 - current_x,y = -8.5 - current_y)
         # self.turn_cmd.turn_to(-math.pi / 4)
+<<<<<<< HEAD
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
+=======
 >>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
         return 'successed'
 
@@ -373,11 +437,16 @@ class Move_To_Find_Ball(smach.State):
 
     def execute(self, ud):
 <<<<<<< HEAD
+<<<<<<< HEAD
         if self.preempt_requested():
             self.service_preempt()
             return 'failed'
         (current_x,current_y) = self.cmd_position.get_robot_current_x_y()
         self.move_cmd.move_to(x = 4.6 - current_x,y = -1 - current_y)
+=======
+        (current_x,current_y) = self.cmd_position.get_robot_current_x_y()
+        self.move_cmd.move_to(x = 5.5 - current_x,y = -0.68 - current_y)
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
 =======
         (current_x,current_y) = self.cmd_position.get_robot_current_x_y()
         self.move_cmd.move_to(x = 5.5 - current_x,y = -0.68 - current_y)
@@ -396,12 +465,18 @@ class Adjust_To_Shoot(smach.State):
 
     def execute(self, ud):
 <<<<<<< HEAD
+<<<<<<< HEAD
         if self.preempt_requested():
             self.service_preempt()
             return 'failed'
         (current_x,current_y) = self.cmd_position.get_robot_current_x_y()
         self.move_cmd.move_to(x = 7.6 - current_x,y = -8.5 - current_y)
         self.turn_cmd.turn_to(-math.pi / 8)
+=======
+        (current_x,current_y) = self.cmd_position.get_robot_current_x_y()
+        self.move_cmd.move_to(x = 7.5 - current_x,y = -8.5 - current_y)
+        # self.turn_cmd.turn_to(-math.pi / 8)
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
 =======
         (current_x,current_y) = self.cmd_position.get_robot_current_x_y()
         self.move_cmd.move_to(x = 7.5 - current_x,y = -8.5 - current_y)
@@ -418,6 +493,7 @@ class Shoot_Adjust_Second(smach.State):
     def __init__(self):
         smach.State.__init__(self,outcomes=['successed','failed'],input_keys=['ball_x', 'ball_y'])
         self.move_cmd = linear_move.linear_move()
+<<<<<<< HEAD
 <<<<<<< HEAD
         self.move_cmd_low = low_speed_linear_move.low_speed_linear_move()
 =======
@@ -444,10 +520,13 @@ class Shoot_Adjust_Third(smach.State):
         smach.State.__init__(self,outcomes=['successed','failed'],input_keys=['ball_x', 'ball_y'])
         self.move_cmd = linear_move.linear_move()
         self.move_cmd_low = low_speed_linear_move.low_speed_linear_move()
+=======
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
         self.cmd_position = get_robot_position.robot_position_state()
         self.turn_cmd = turn_an_angular.turn_an_angular()
 
     def execute(self, ud):
+<<<<<<< HEAD
         if self.preempt_requested():
             self.service_preempt()
             return 'failed'
@@ -456,12 +535,17 @@ class Shoot_Adjust_Third(smach.State):
         return "successed"
 
 =======
+=======
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
         (current_x,current_y) = self.cmd_position.get_robot_current_x_y()
         self.move_cmd.move_to(x = ud.ball_x - current_x,y = ud.ball_y - current_y)
         (current_x,current_y) = self.cmd_position.get_robot_current_x_y()
         self.move_cmd.move_to(x = 7.5 - current_x,y = -8.5 - current_y)
         # self.turn_cmd.turn_to(-math.pi / 8)
 
+<<<<<<< HEAD
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
+=======
 >>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
 ############################################
 ###########shoot_ball_second################
@@ -478,6 +562,7 @@ class Move_To_Three_Point_Line(smach.State):
 
     def execute(self, ud):
 <<<<<<< HEAD
+<<<<<<< HEAD
         if self.preempt_requested():
             self.service_preempt()
             return 'failed'
@@ -488,10 +573,15 @@ class Move_To_Three_Point_Line(smach.State):
         self.move_cmd.move_to(x = 1.4,y = -4.1,yaw = angular - current_w)
         (current_x,current_y,current_w) = self.cmd_position.get_robot_current_x_y_w()
 =======
+=======
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
         self.move_cmd.move_to(x = 2.6)
         self.move_cmd.move_to(x = 1.5,y = -4.2)
         (current_x,current_y) = self.cmd_position.get_robot_current_x_y()
         #定位柱的位置 8, -10.925
+<<<<<<< HEAD
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
+=======
 >>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
         angular = math.atan2( -10.925- current_y,8 - current_x)
         self.turn_cmd.turn_to(angular)
@@ -507,6 +597,7 @@ class Move_To_Another_Ball(smach.State):
         rospy.loginfo('the Move To Another Ball is initial OK!')
 
     def execute(self, ud):
+<<<<<<< HEAD
 <<<<<<< HEAD
         if self.preempt_requested():
             self.service_preempt()
@@ -590,6 +681,15 @@ class Three_Line_Out_2(smach.State):
         ud.ball_y = current_y + math.sin(current_w + ball_theta) * math.sqrt(ball_x*ball_x + ball_y*ball_y) + 0.8
 
 =======
+=======
+        (current_x,current_y) = self.cmd_position.get_robot_current_x_y()
+        self.move_cmd.move_to(x = 5.5-current_x,y = -0.68-current_y)
+        self.cmd_turn.turn_to(0)
+        return 'successed'
+
+
+
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
         return 'successed'
 #回到三分线上捡球的位置（以此避免撞到三分线上的篮球）
 class Three_Line_Out(smach.State):
@@ -601,6 +701,9 @@ class Three_Line_Out(smach.State):
     def execute(self, ud):
         (current_x,current_y) = self.cmd_position.get_robot_current_x_y()
         self.move_cmd.move_to(x = ud.ball_x - current_x,y = ud.ball_y - current_y)
+<<<<<<< HEAD
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
+=======
 >>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
         return 'successed'
 
@@ -615,13 +718,17 @@ class Move_To_Another_Ball_Foot(smach.State):
         smach.State.__init__(self,outcomes=['successed','failed'])
         self.move_cmd = linear_move.linear_move()
 <<<<<<< HEAD
+<<<<<<< HEAD
         self.cmd_turn = turn_an_angular.turn_an_angular()
+=======
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
 =======
 >>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
         self.cmd_position = get_robot_position.robot_position_state()
         rospy.loginfo('the Move To Another Ball Foot is initial OK!')
 
     def execute(self, ud):
+<<<<<<< HEAD
 <<<<<<< HEAD
         if self.preempt_requested():
             self.service_preempt()
@@ -633,6 +740,8 @@ class Move_To_Another_Ball_Foot(smach.State):
         return 'successed'
 
 =======
+=======
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
         (current_x,current_y) = self.cmd_position.get_robot_current_x_y()
         self.cmd_move.move_to(x = 1.8-current_x,y = -9-current_y)
         self.cmd_turn.turn_to(-math.pi/1.8)
@@ -643,6 +752,9 @@ class Shoot_Adjust_Third(smach.State):
 
     def execute(self, ud):
         return 'successed'
+<<<<<<< HEAD
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
+=======
 >>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
 #移动到定位柱附近
 class Move_To_Find_Column(smach.State):
@@ -654,9 +766,12 @@ class Move_To_Find_Column(smach.State):
         self.turn_cmd = turn_an_angular.turn_an_angular()
     def execute(self, ud):
 <<<<<<< HEAD
+<<<<<<< HEAD
         if self.preempt_requested():
             self.service_preempt()
             return 'failed'
+=======
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
 =======
 >>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
         (current_x,current_y) = self.cmd_position.get_robot_current_x_y()

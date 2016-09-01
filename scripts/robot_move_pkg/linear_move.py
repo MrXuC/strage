@@ -36,7 +36,11 @@ class linear_move(object):
         self.linear_sp = spline_func.growth_curve()
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 
+=======
+        
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
 =======
         
 >>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
@@ -104,7 +108,11 @@ class linear_move(object):
 
     def move_to(self, x= 0.0, y= 0.0, yaw= 0.0):
 <<<<<<< HEAD
+<<<<<<< HEAD
      #'''提供给外部的接口,移动某一距离、角度'''
+=======
+    # 提供给外部的接口
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
 =======
     # 提供给外部的接口
 >>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
@@ -113,6 +121,7 @@ class linear_move(object):
             self.accurate_turn_an_angular.turn(self.normalize_angle(yaw))
         else:
             self.start_run(x, y, yaw)
+<<<<<<< HEAD
 <<<<<<< HEAD
             
     def move_to_pose(self, x = 0.0, y = 0.0, yaw = 0.0):
@@ -126,6 +135,8 @@ class linear_move(object):
     def cal_now_pose_to_pose(self,goal_pose_yaw):
         current_yaw = self.robot_state.get_robot_current_w()
         return self.normalize_angle(current_yaw - goal_pose_yaw)
+=======
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
 =======
 >>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
 
@@ -142,8 +153,14 @@ if __name__ == '__main__'   :
     rospy.init_node('linear_move')
     move_cmd = linear_move()
 <<<<<<< HEAD
+<<<<<<< HEAD
     print self.cal_now_pose_to_pose(1.57)
 #move_cmd.move_to( x = 3.6 ,y =2.4,yaw =  3.14  )
+=======
+    move_cmd.move_to( x = 2.4 ,y =0.0,yaw = 0.0)
+#    rospy.sleep(1.0)
+#    move_cmd.move_to(x = 1, yaw= 1.57)
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
 =======
     move_cmd.move_to( x = 2.4 ,y =0.0,yaw = 0.0)
 #    rospy.sleep(1.0)

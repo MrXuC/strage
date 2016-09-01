@@ -44,6 +44,9 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
 =======
 >>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
   <build_depend>ros_smach</build_depend>
@@ -51,6 +54,7 @@
   <build_depend>rospy</build_depend>
   <run_depend>basketball_msgs</run_depend>
   <run_depend>ros_smach</run_depend>
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 =======
@@ -66,6 +70,8 @@
 >>>>>>> d41aa20b485db43a3c212e87195b10342618c153
 =======
 >>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
+=======
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
   <run_depend>roscpp</run_depend>
   <run_depend>rospy</run_depend>
 
@@ -78,6 +84,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 </package>
 =======
 </package>
@@ -85,6 +92,9 @@
 =======
 </package>
 >>>>>>> d41aa20b485db43a3c212e87195b10342618c153
+=======
+</package>
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
 =======
 </package>
 >>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592

@@ -3,6 +3,9 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
 =======
 >>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
 # author = hao , rescuer liao
@@ -11,10 +14,13 @@
 #append the robot state pkg to the python path
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> d41aa20b485db43a3c212e87195b10342618c153
 =======
 >>>>>>> d41aa20b485db43a3c212e87195b10342618c153
+=======
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
 =======
 >>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
 
@@ -43,6 +49,7 @@ import geometry_msgs.msg as g_msgs
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import interpolation_function.growth_curve as sp_func
 =======
 
@@ -53,10 +60,14 @@ import interpolation_function.growth_curve as sp_func
 =======
 import interpolation_function.growth_curve as sp_func
 >>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
+=======
+import interpolation_function.growth_curve as sp_func
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
 class move_a_distance(object):
     def __init__(self):
         rospy.loginfo('[robot_move_pkg]->move_a_distance is initial')
         self.robot_state = robot_state.robot_position_state()
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -73,6 +84,11 @@ class move_a_distance(object):
         self.stop_tolerance = config.linear_move_stop_tolerance
         self.cmd_move_pub = rospy.Publisher('/cmd_move',g_msgs.Twist , queue_size=100)
 >>>>>>> d41aa20b485db43a3c212e87195b10342618c153
+=======
+        self.stop_tolerance = config.high_speed_stop_tolerance
+        self.cmd_move_pub = rospy.Publisher('/cmd_move',g_msgs.Twist , queue_size=100)
+        self.vel_sp = sp_func.growth_curve()
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
 =======
         self.stop_tolerance = config.high_speed_stop_tolerance
         self.cmd_move_pub = rospy.Publisher('/cmd_move',g_msgs.Twist , queue_size=100)
@@ -90,6 +106,7 @@ class move_a_distance(object):
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     def move_to(self , x = 0.0 , y = 0.0):
 =======
     def move_to(self , x = 0 , y = 0):
@@ -97,6 +114,9 @@ class move_a_distance(object):
 =======
     def move_to(self , x = 0 , y = 0):
 >>>>>>> d41aa20b485db43a3c212e87195b10342618c153
+=======
+    def move_to(self , x = 0.0 , y = 0.0):
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
 =======
     def move_to(self , x = 0.0 , y = 0.0):
 >>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
@@ -117,6 +137,9 @@ class move_a_distance(object):
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
 =======
 >>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
     #开始移动
@@ -149,6 +172,7 @@ class move_a_distance(object):
                         break
                     self.speed = self.vel_sp.cal(distance_has_moved)
         ################计算出速度方向###################
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 =======
@@ -184,11 +208,14 @@ class move_a_distance(object):
 >>>>>>> d41aa20b485db43a3c212e87195b10342618c153
 =======
 >>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
+=======
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
                     if x > 0:
                         move_velocity.linear.x = math.copysign(self.speed , distance_to_arrive_goal_x)
                     else:
                         move_velocity.linear.x = math.copysign(self.speed, -distance_to_arrive_goal_x)
                     move_velocity.linear.y = 0.0
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -199,6 +226,9 @@ class move_a_distance(object):
 =======
                     self.cmd_move_pub.publish(move_velocity)#根据配置文件的设置速度，使机器人移动
 >>>>>>> d41aa20b485db43a3c212e87195b10342618c153
+=======
+                    self.cmd_move_pub.publish(move_velocity)
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
 =======
                     self.cmd_move_pub.publish(move_velocity)
 >>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
@@ -211,11 +241,15 @@ class move_a_distance(object):
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                     self.speed = self.vel_sp.cal(distance_has_moved)
 =======
 >>>>>>> d41aa20b485db43a3c212e87195b10342618c153
 =======
 >>>>>>> d41aa20b485db43a3c212e87195b10342618c153
+=======
+                    self.speed = self.vel_sp.cal(distance_has_moved)
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
 =======
                     self.speed = self.vel_sp.cal(distance_has_moved)
 >>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
@@ -226,6 +260,9 @@ class move_a_distance(object):
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
 =======
 >>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
                         move_velocity.linear.y = math.copysign(self.speed ,-distance_to_arrive_goal_y)
@@ -238,6 +275,7 @@ if __name__ == '__main__':
     move_cmd = move_a_distance()
 #    move_cmd.move_to(x = 1.2)
     move_cmd.move_to(y = 6.0)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 =======
@@ -258,6 +296,8 @@ if __name__ == '__main__':
 >>>>>>> d41aa20b485db43a3c212e87195b10342618c153
 =======
 >>>>>>> d41aa20b485db43a3c212e87195b10342618c153
+=======
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
 =======
 >>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
     sys.path.remove(config.robot_state_pkg_path)

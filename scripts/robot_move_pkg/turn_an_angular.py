@@ -4,6 +4,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 #Team Unware Basketball Robot
 =======
 #Team Unware Basketball Robot 
@@ -11,6 +12,9 @@
 =======
 #Team Unware Basketball Robot 
 >>>>>>> d41aa20b485db43a3c212e87195b10342618c153
+=======
+#Team Unware Basketball Robot
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
 =======
 #Team Unware Basketball Robot
 >>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
@@ -31,12 +35,16 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
 =======
 >>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
 #           tf这边返回的角度 是 -pi 到 pi
 #           所以在出现 -pi 越过 pi 时 会十分奇葩
 #           所以通过计算角度变化的累加值 避免出现这个情况
 #             2016-7-15 这个错误以修复
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 
@@ -46,6 +54,8 @@
 
 
 >>>>>>> d41aa20b485db43a3c212e87195b10342618c153
+=======
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
 =======
 >>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
 #append the robot state pkg to the python path
@@ -64,6 +74,9 @@ class turn_an_angular(object):
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
 =======
 >>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
         self.speed = config.high_turn_angular_speed
@@ -72,6 +85,7 @@ class turn_an_angular(object):
         self.cmd_vel_pub = rospy.Publisher('/cmd_move' , g_msgs.Twist , queue_size=100)
 
     #发送急停速度，机器人停止
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 =======
@@ -88,6 +102,8 @@ class turn_an_angular(object):
 >>>>>>> d41aa20b485db43a3c212e87195b10342618c153
 =======
 >>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
+=======
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
     def brake(self):
         self.cmd_vel_pub.publish(g_msgs.Twist())
 
@@ -97,6 +113,9 @@ class turn_an_angular(object):
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
 =======
 >>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
         current_angular = start_angular = self.robot_state.get_robot_current_w()#获取当前机器人的角度
@@ -112,6 +131,7 @@ class turn_an_angular(object):
                 is_arrive_goal = True
                 break
             current_angular = self.robot_state.get_robot_current_w()
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 =======
@@ -137,6 +157,8 @@ class turn_an_angular(object):
 >>>>>>> d41aa20b485db43a3c212e87195b10342618c153
 =======
 >>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
+=======
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
             if goal_angular > 0:
                 move_velocity.angular.z = self.speed
             else:
@@ -144,6 +166,9 @@ class turn_an_angular(object):
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
 =======
 >>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
             delta_angular += abs(abs(current_angular) - abs(start_angular) )
@@ -178,6 +203,7 @@ class turn_an_angular(object):
 
     #将目标角度规范化，取最近的方向进行移动
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 =======
 >>>>>>> d41aa20b485db43a3c212e87195b10342618c153
@@ -193,6 +219,8 @@ class turn_an_angular(object):
 >>>>>>> d41aa20b485db43a3c212e87195b10342618c153
 =======
 >>>>>>> d41aa20b485db43a3c212e87195b10342618c153
+=======
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
 =======
 >>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
 	#如：发送目标值200
@@ -213,6 +241,7 @@ if __name__ == '__main__':
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     a.turn(math.radians(float(sys.argv[1])))
 =======
     a.turn(math.radians(-30.0))
@@ -220,6 +249,9 @@ if __name__ == '__main__':
 =======
     a.turn(math.radians(-30.0))
 >>>>>>> d41aa20b485db43a3c212e87195b10342618c153
+=======
+    a.turn(math.radians(float(sys.argv[1])))
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
 =======
     a.turn(math.radians(float(sys.argv[1])))
 >>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592

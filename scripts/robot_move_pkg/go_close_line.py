@@ -34,7 +34,11 @@ class move_to_home(object):
         r = rospy.Rate(50)
         move_velocity = g_msgs.Twist()
 <<<<<<< HEAD
+<<<<<<< HEAD
         move_velocity.linear.x = 0.3
+=======
+        move_velocity.linear.x = 0.15
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
 =======
         move_velocity.linear.x = 0.15
 >>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
@@ -49,8 +53,13 @@ class move_to_home(object):
         self.go_to_home()
         #机器检测完回家框后停下来的位置和场地条件关系很大，一下所走的x,y值根据具体场地进行修改
 <<<<<<< HEAD
+<<<<<<< HEAD
         self.robot_move.move_to(y = -0.6)
         self.robot_move.move_to(x = 1.3)
+=======
+        self.robot_move.move_to(y = -0.35)
+        self.robot_move.move_to(x = 1.2)
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
 =======
         self.robot_move.move_to(y = -0.35)
         self.robot_move.move_to(x = 1.2)
@@ -72,7 +81,11 @@ class move_to_home(object):
             self.cmd_move_pub.publish(move_velocity)
             #修正角度的范围可根据实际情况调整
 <<<<<<< HEAD
+<<<<<<< HEAD
             if theta < 0.03 and theta > -0.03:
+=======
+            if theta < 0.05 and theta > -0.05:
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
 =======
             if theta < 0.05 and theta > -0.05:
 >>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
@@ -91,7 +104,11 @@ class move_to_home(object):
             (x,theta,if_close_line) = self.close_line_cmd.find_line()
 
 <<<<<<< HEAD
+<<<<<<< HEAD
             move_velocity.linear.y = -0.3
+=======
+            move_velocity.linear.y = -0.15
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
 =======
             move_velocity.linear.y = -0.15
 >>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592

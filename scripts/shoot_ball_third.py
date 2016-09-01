@@ -11,6 +11,7 @@ import smach
 import math
 import smach_ros
 <<<<<<< HEAD
+<<<<<<< HEAD
 from std_msgs.msg import Empty
 from robot_state_class.second_project_state import *
 
@@ -50,6 +51,8 @@ def shoot_third():
 
             start = smach.Concurrence(outcomes=['successed','failed'],
 =======
+=======
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
 from robot_state_class.second_project_state import *
 
 
@@ -67,12 +70,16 @@ def shoot_third():
     with sm_top:
 
         start = smach.Concurrence(outcomes=['successed','failed'],
+<<<<<<< HEAD
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
+=======
 >>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
                                    default_outcome='failed',
                                    outcome_map={'successed':
                                        { 'SHOVEL_CONTROL_DOWN':'successed',
                                          'MOVE_TO_THREE_POINT_LINE':'successed'}})
 
+<<<<<<< HEAD
 <<<<<<< HEAD
             smach.StateMachine.add("START",start,
                                transitions={"successed":"FindBall1",
@@ -85,6 +92,8 @@ def shoot_third():
 
             smach.StateMachine.add("FindBall1", Search_Ball_By_Line(),
 =======
+=======
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
         smach.StateMachine.add("START",start,
                                transitions={"successed":"FindBall1",
                                             "failed":"failed"})
@@ -95,6 +104,9 @@ def shoot_third():
 
 
         smach.StateMachine.add("FindBall1", Search_Ball_By_Line(),
+<<<<<<< HEAD
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
+=======
 >>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
                                transitions={"successed": "MOVE_ADJUST1",
                                             "failed": "failed"},
@@ -102,6 +114,7 @@ def shoot_third():
                                           'ball_y': 'enter_location_y'})
 
 
+<<<<<<< HEAD
 <<<<<<< HEAD
             smach.StateMachine.add("MOVE_ADJUST1",Move_Adjust(),
                                transitions={"successed":"SHOVEL1",
@@ -113,6 +126,8 @@ def shoot_third():
 
             smach.StateMachine.add("MOVE_TO_FIND_COLUMN_1",Move_To_Find_Column(),
 =======
+=======
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
         smach.StateMachine.add("MOVE_ADJUST1",Move_Adjust(),
                                transitions={"successed":"SHOVEL1",
                                             "failed":"failed"})
@@ -122,13 +137,20 @@ def shoot_third():
                                                     'failed': 'failed'})
 
         smach.StateMachine.add("MOVE_TO_FIND_COLUMN_1",Move_To_Find_Column(),
+<<<<<<< HEAD
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
+=======
 >>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
                                transitions={'successed':'FIND_COLUMN1',
                                             'failed':'failed'})
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
             smach.StateMachine.add('FIND_COLUMN1',Find_Column(),
+=======
+        smach.StateMachine.add('FIND_COLUMN1',Find_Column(),
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
 =======
         smach.StateMachine.add('FIND_COLUMN1',Find_Column(),
 >>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
@@ -138,7 +160,11 @@ def shoot_third():
                                                   'column_theta': 'column_theta'})
 
 <<<<<<< HEAD
+<<<<<<< HEAD
             smach.StateMachine.add('SHOOT_ADJUST1',Shoot_Adjust_1(),
+=======
+        smach.StateMachine.add('SHOOT_ADJUST1',Shoot_Adjust(),
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
 =======
         smach.StateMachine.add('SHOOT_ADJUST1',Shoot_Adjust(),
 >>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
@@ -148,6 +174,7 @@ def shoot_third():
                                                   'column_theta': 'column_theta'})
 
 
+<<<<<<< HEAD
 <<<<<<< HEAD
             smach.StateMachine.add('SHOOT1',Shoot(),
                                transitions={'successed':'MOVE_POINT_PRO',
@@ -166,6 +193,8 @@ def shoot_third():
             smach.StateMachine.add("FindBall2", Find_Ball(),
                                transitions={"successed": "MOVE_ADJUST2",
 =======
+=======
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
         smach.StateMachine.add('SHOOT1',Shoot(),
                                transitions={'successed':'THREE_LINE_OUT',
                                             'failed':'failed'})
@@ -182,11 +211,15 @@ def shoot_third():
 
         smach.StateMachine.add("FindBall2", Search_Ball_CW(),
                                transitions={"successed": "MOVE_POINT2",
+<<<<<<< HEAD
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
+=======
 >>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
                                             "failed": "failed"},
                                remapping={'ball_x': 'ball_location_x',
                                           'ball_y': 'ball_location_y',
                                           'ball_theta': 'ball_theta'})
+<<<<<<< HEAD
 <<<<<<< HEAD
             #
             # smach.StateMachine.add('MOVE_POINT2',Move_Point(),
@@ -211,6 +244,8 @@ def shoot_third():
             smach.StateMachine.add('FIND_COLUMN2',Find_Column(),
                                transitions={'successed':'SHOOT_ADJUST2',
 =======
+=======
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
 
         smach.StateMachine.add('MOVE_POINT2',Move_Point(),
                                        transitions={'successed': 'MOVE_ADJUST2',
@@ -235,13 +270,20 @@ def shoot_third():
 
         smach.StateMachine.add('FIND_COLUMN2',Find_Column(),
                                transitions={'successed':'SHOOT_ADJUST1',
+<<<<<<< HEAD
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
+=======
 >>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
                                             'failed':'failed'},
                                         remapping={'column_x': 'column_x',
                                                   'column_theta': 'column_theta'})
 
 <<<<<<< HEAD
+<<<<<<< HEAD
             smach.StateMachine.add('SHOOT_ADJUST2',Shoot_Adjust_2(),
+=======
+        smach.StateMachine.add('SHOOT_ADJUST2',Shoot_Adjust(),
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
 =======
         smach.StateMachine.add('SHOOT_ADJUST2',Shoot_Adjust(),
 >>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
@@ -251,7 +293,11 @@ def shoot_third():
                                                   'column_theta': 'column_theta'})
 
 <<<<<<< HEAD
+<<<<<<< HEAD
             smach.StateMachine.add('SHOOT2',Shoot(),
+=======
+        smach.StateMachine.add('SHOOT2',Shoot(),
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
 =======
         smach.StateMachine.add('SHOOT2',Shoot(),
 >>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
@@ -259,6 +305,7 @@ def shoot_third():
                                             'failed':'failed'})
 
 
+<<<<<<< HEAD
 <<<<<<< HEAD
         smach.Concurrence.add('RUN',sm_top)
         smach.Concurrence.add('STOP', smach_ros.MonitorState("/sm_reset", Empty, monitor_cb))
@@ -268,10 +315,15 @@ def shoot_third():
 if __name__ == '__main__':
     rospy.init_node('shootBall_third')
 =======
+=======
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
 
     sm_top.execute()
 
 
 if __name__ == '__main__':
+<<<<<<< HEAD
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
+=======
 >>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
     shoot_third()

@@ -9,6 +9,7 @@ import smach
 import math
 import smach_ros
 <<<<<<< HEAD
+<<<<<<< HEAD
 from std_msgs.msg import Empty
 from robot_state_class.first_project_state import *
 
@@ -49,6 +50,8 @@ def pass_second():
 
             start = smach.Concurrence(outcomes=['successed','failed'],
 =======
+=======
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
 from robot_state_class.first_project_state import *
 
 def pass_second():
@@ -64,6 +67,9 @@ def pass_second():
     with sm_top:
 
         start = smach.Concurrence(outcomes=['successed','failed'],
+<<<<<<< HEAD
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
+=======
 >>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
                                    default_outcome='failed',
                                    outcome_map={'successed':
@@ -71,6 +77,7 @@ def pass_second():
                                          'MOVE_TO_THREE_POINT_LINE':'successed'}})
 
 
+<<<<<<< HEAD
 <<<<<<< HEAD
             with start:
                 smach.Concurrence.add("SHOVEL_CONTROL_DOWN",Shovel_Control_Down())
@@ -83,6 +90,8 @@ def pass_second():
 
             smach.StateMachine.add("FindBall1", Search_Ball(),
 =======
+=======
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
         with start:
             smach.Concurrence.add("SHOVEL_CONTROL_DOWN",Shovel_Control_Down())
 
@@ -93,6 +102,9 @@ def pass_second():
                                             "failed":"failed"})
 
         smach.StateMachine.add("FindBall1", Search_Ball(),
+<<<<<<< HEAD
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
+=======
 >>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
                                transitions={"successed": "MOVE_POINT1",
                                             "failed": "failed"},
@@ -101,7 +113,11 @@ def pass_second():
                                           'ball_theta': 'ball_theta'})
 
 <<<<<<< HEAD
+<<<<<<< HEAD
             smach.StateMachine.add('MOVE_POINT1',Move_Point(),
+=======
+        smach.StateMachine.add('MOVE_POINT1',Move_Point(),
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
 =======
         smach.StateMachine.add('MOVE_POINT1',Move_Point(),
 >>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
@@ -111,6 +127,7 @@ def pass_second():
                                                   'ball_y': 'ball_location_y',
                                                   'ball_theta': 'ball_theta'})
 
+<<<<<<< HEAD
 <<<<<<< HEAD
             smach.StateMachine.add("MOVE_ADJUST1",Move_Adjust(),
                                transitions={"successed":"SHOVEL1",
@@ -126,6 +143,8 @@ def pass_second():
 
             smach.StateMachine.add('SHOOT1',Shoot(),
 =======
+=======
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
         smach.StateMachine.add("MOVE_ADJUST1",Move_Adjust(),
                                transitions={"successed":"SHOVEL1",
                                             "failed":"failed"})
@@ -139,11 +158,15 @@ def pass_second():
                                             'failed':'failed'})
 
         smach.StateMachine.add('SHOOT1',Shoot(),
+<<<<<<< HEAD
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
+=======
 >>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
                                transitions={'successed':'MOVE_POINT_PRO_1',
                                             'failed':'failed'})
 
 
+<<<<<<< HEAD
 <<<<<<< HEAD
             smach.StateMachine.add('MOVE_POINT_PRO_1',Move_To_Another_Ball_1(),
                                transitions={'successed':'FindBall2',
@@ -151,11 +174,16 @@ def pass_second():
 
             smach.StateMachine.add("FindBall2", Search_Ball(),
 =======
+=======
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
         smach.StateMachine.add('MOVE_POINT_PRO_1',Move_To_Another_Ball_1(),
                                transitions={'successed':'FindBall2',
                                             'failed':'failed'})
 
         smach.StateMachine.add("FindBall2", Search_Ball(),
+<<<<<<< HEAD
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
+=======
 >>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
                                transitions={"successed": "MOVE_POINT2",
                                             "failed": "MOVE_POINT_PRO_2"},
@@ -164,17 +192,23 @@ def pass_second():
                                           'ball_theta': 'ball_theta'})
 
 <<<<<<< HEAD
+<<<<<<< HEAD
             smach.StateMachine.add("MOVE_POINT_PRO_2", Move_To_Another_Ball_2(),
                                transitions={"successed": "FindBall3",
                                             "failed": "failed"})
 
             smach.StateMachine.add("FindBall3", Search_Ball_CW(),
 =======
+=======
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
         smach.StateMachine.add("MOVE_POINT_PRO_2", Move_To_Another_Ball_2(),
                                transitions={"successed": "FindBall3",
                                             "failed": "failed"})
 
         smach.StateMachine.add("FindBall3", Search_Ball_CW(),
+<<<<<<< HEAD
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
+=======
 >>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
                                transitions={"successed": "MOVE_POINT2",
                                             "failed": "failed"},
@@ -183,7 +217,11 @@ def pass_second():
                                           'ball_theta': 'ball_theta'})
 
 <<<<<<< HEAD
+<<<<<<< HEAD
             smach.StateMachine.add('MOVE_POINT2',Move_Point(),
+=======
+        smach.StateMachine.add('MOVE_POINT2',Move_Point(),
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
 =======
         smach.StateMachine.add('MOVE_POINT2',Move_Point(),
 >>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
@@ -193,6 +231,7 @@ def pass_second():
                                                   'ball_y': 'ball_location_y',
                                                   'ball_theta': 'ball_theta'})
 
+<<<<<<< HEAD
 <<<<<<< HEAD
             smach.StateMachine.add("MOVE_ADJUST2",Move_Adjust(),
                                transitions={"successed":"SHOVEL2",
@@ -224,6 +263,8 @@ def pass_second():
 if __name__ == '__main__':
     rospy.init_node('passBall_second')
 =======
+=======
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
         smach.StateMachine.add("MOVE_ADJUST2",Move_Adjust(),
                                transitions={"successed":"SHOVEL2",
                                             "failed":"failed"})
@@ -251,5 +292,8 @@ if __name__ == '__main__':
 
 if __name__ == '__main__':
     rospy.loginfo('fasfasfasfaf')
+<<<<<<< HEAD
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
+=======
 >>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
     pass_second()

@@ -24,6 +24,7 @@ class find_cylinder_state(object):
         res = self.cylinder_client()
         move_velocity = g_msgs.Twist()
 <<<<<<< HEAD
+<<<<<<< HEAD
         move_velocity.angular.z = -0.13
         x = res.z
         theta = res.theta
@@ -34,6 +35,8 @@ class find_cylinder_state(object):
             res = self.cylinder_client()
             x = res.z
 =======
+=======
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
         move_velocity.angular.z = -0.15
         x = res.x
         theta = res.theta
@@ -43,6 +46,9 @@ class find_cylinder_state(object):
             self.cmd_vel_pub.publish(move_velocity)
             res = self.cylinder_client()
             x = res.x
+<<<<<<< HEAD
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
+=======
 >>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
             theta = res.theta
             iscylinder = res.has_cylinder
@@ -57,7 +63,11 @@ class find_cylinder_state(object):
         self.cylinder_client.wait_for_service()
         res = self.cylinder_client()
 <<<<<<< HEAD
+<<<<<<< HEAD
         x = res.z
+=======
+        x = res.x
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
 =======
         x = res.x
 >>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592

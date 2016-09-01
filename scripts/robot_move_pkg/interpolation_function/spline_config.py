@@ -5,7 +5,11 @@
 ###############  所以现在用的 基于位移的细菌生长曲线插值
 #机器人移动速度最大值
 <<<<<<< HEAD
+<<<<<<< HEAD
 velocity_max = 1.0
+=======
+velocity_max = 0.7 
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
 =======
 velocity_max = 0.7 
 >>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
@@ -21,6 +25,7 @@ second_mode_dis = 1.2
 #基于细生长曲线插值的相关参数
 #直线移动的参数
 <<<<<<< HEAD
+<<<<<<< HEAD
 #启动时的参数
 # gamma 影响插值曲线上的最大速度
 GAMMA = velocity_max
@@ -32,10 +37,15 @@ START_ALPHA =22
 END_BETA = 27
 END_ALPHA = 18
 =======
+=======
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
 # gamma 影响插值曲线上的最大速度
 GAMMA = velocity_max
 # 插值起始速度等于 gamma/(1+beta）
 BETA =   15
 # alpha 影响达到最大速度的自变量的值 alpha越大,越快达到最大速度
 ALPHA =11
+<<<<<<< HEAD
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
+=======
 >>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592

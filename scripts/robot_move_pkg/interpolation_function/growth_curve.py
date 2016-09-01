@@ -11,6 +11,7 @@ class growth_curve(object):
         self.gamma = spline_config.GAMMA
         # 插值起始速度等于 gamma/(1+beta）
 <<<<<<< HEAD
+<<<<<<< HEAD
         self.start_beta  = spline_config.START_BETA
         # alpha 影响达到最大速度的自变量的值 alpha越大,越快达到最大速度
         self.start_alpha = spline_config.START_ALPHA
@@ -24,6 +25,8 @@ class growth_curve(object):
         f2 = lambda x: self.gamma / (1.0 + self.end_beta*exp(-self.end_alpha *(self.goal -  x)))
         if dis <= self.goal/2.5 :
 =======
+=======
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
         self.beta  = spline_config.BETA
         # alpha 影响达到最大速度的自变量的值 alpha越大,越快达到最大速度
         self.alpha = spline_config.ALPHA
@@ -33,6 +36,9 @@ class growth_curve(object):
         f1 = lambda x: self.gamma / (1.0 + self.beta*exp(-self.alpha * x))
         f2 = lambda x: f1(self.goal - x)
         if dis <= self.goal/2.0 :
+<<<<<<< HEAD
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
+=======
 >>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
             return f1(dis)
         else:
@@ -41,6 +47,10 @@ class growth_curve(object):
 #        else:
 #            return 0.0
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
 =======
 
 >>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592

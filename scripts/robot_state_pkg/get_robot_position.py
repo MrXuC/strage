@@ -1,6 +1,9 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
 =======
 >>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
 #! /usr/bin/env python
@@ -10,6 +13,7 @@
 #!/usr/bin/env python
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 #!/usr/bin/env python
 #coding:utf-8
@@ -18,6 +22,8 @@
 #!/usr/bin/env python
 #coding:utf-8
 >>>>>>> d41aa20b485db43a3c212e87195b10342618c153
+=======
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
 =======
 >>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
 
@@ -46,12 +52,16 @@ class robot_position_state(object):
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
 =======
 >>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
         self.tf_listener = tf.TransformListener()
         
         #进行tf的初始化，若失败请检查odom到bask_link的TF
     	self.tf_listener = tf.TransformListener()
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
         
@@ -63,6 +73,8 @@ class robot_position_state(object):
 	#进行tf的初始化，若失败请检查odom到bask_link的TF
 	self.tf_listener = tf.TransformListener()
 >>>>>>> d41aa20b485db43a3c212e87195b10342618c153
+=======
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
 =======
 >>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
 
@@ -88,6 +100,7 @@ class robot_position_state(object):
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 ########################注：以下坐标获取均是通过tf实现####################################
 =======
 
@@ -97,6 +110,9 @@ class robot_position_state(object):
 
 	########################注：以下坐标获取均是通过tf实现####################################
 >>>>>>> d41aa20b485db43a3c212e87195b10342618c153
+=======
+########################注：以下坐标获取均是通过tf实现####################################
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
 =======
 ########################注：以下坐标获取均是通过tf实现####################################
 >>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
@@ -113,6 +129,9 @@ class robot_position_state(object):
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
 =======
 >>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
 #获取机器人当前的X，Y值
@@ -121,6 +140,7 @@ class robot_position_state(object):
         return x,y
 
 #获取机器人当前的X值
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 =======
@@ -137,10 +157,13 @@ class robot_position_state(object):
 >>>>>>> d41aa20b485db43a3c212e87195b10342618c153
 =======
 >>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
+=======
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
     def get_robot_current_x(self):
         x , y , yaw = self.get_robot_current_x_y_w()
         return x
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -154,10 +177,14 @@ class robot_position_state(object):
 =======
 #获取机器人当前的Y值
 >>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
+=======
+#获取机器人当前的Y值
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
     def get_robot_current_y(self):
         x , y , yaw = self.get_robot_current_x_y_w()
         return y
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -171,6 +198,10 @@ class robot_position_state(object):
 	#获取机器人当前的方向值
     def get_robot_current_yaw(self):
 >>>>>>> d41aa20b485db43a3c212e87195b10342618c153
+=======
+#获取机器人当前的方向值
+    def get_robot_current_w(self):
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
 =======
 #获取机器人当前的方向值
     def get_robot_current_w(self):
@@ -184,6 +215,9 @@ if __name__ == '__main__':
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
 =======
 >>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
     s = a.get_robot_current_w()
@@ -192,11 +226,14 @@ if __name__ == '__main__':
 	 print s
     
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     a.get_robot_current_x()
 >>>>>>> d41aa20b485db43a3c212e87195b10342618c153
 =======
     a.get_robot_current_x()
 >>>>>>> d41aa20b485db43a3c212e87195b10342618c153
+=======
+>>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
 =======
 >>>>>>> c23cd36a28263fa7e748e644f0229d201acd5592
