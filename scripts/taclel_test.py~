@@ -1,0 +1,192 @@
+#!/usr/bin/env python
+# author rescuer xu
+# two state machine
+
+import rospy
+import smach
+import math
+import smach_ros
+from robot_move_pkg import move_a_distance
+from robot_move_pkg import turn_an_angular
+from robot_move_pkg import linear_move
+from robot_shovel_srv import control_srv
+from robot_find_pkg import findball
+
+
+# define state Foo
+# class Move_Point(smach.State):
+#     def __init__(self):
+#         smach.State.__init__(self, outcomes=['successed', 'failed'], input_keys=['ball_x', 'ball_y', 'ball_theta'])
+#         self.move_cmd = linear_move.linear_move()
+#         rospy.loginfo("the Move Point is initial OK!")
+#
+#     def execute(self, ud):
+#         rospy.loginfo("x = %s"%ud.ball_x)
+#         rospy.loginfo("y = %s"%ud.ball_y)
+#         self.move_cmd.move_to(x=ud.ball_x-1, y=ud.ball_y,yaw=ud.ball_theta)
+#         # self.move_cmd.move_to(x=ud.ball_x, y = 0)
+#         return 'successed'
+
+class Move_Adjust(smach.State):
+    def __init__(self):
+        smach.State.__init__(self, outcomes=['successed', 'failed'])
+        self.move_cmd = move_a_distance.move_a_distance()
+        rospy.loginfo("the Move Adjust is initial OK!")
+
+    def execute(self, ud):
+        self.move_cmd.move_to(x=0.8)
+        return 'successed'
+
+class Move_Point_x(smach.State):
+    def __init__(self):
+        smach.State.__init__(self, outcomes=['successed', 'failed'], input_keys=['ball_x', 'ball_y', 'ball_theta'])
+        self.move_cmd = move_a_distance.move_a_distance()
+        rospy.loginfo("the Move Point_x is initial OK!")
+
+    def execute(self, ud):
+        rospy.loginfo("x = %s"%ud.ball_x)
+        rospy.loginfo("y = %s"%ud.ball_y)
+        # self.move_cmd.move_to(x=ud.ball_x, y=ud.ball_y)
+        self.move_cmd.move_to(x=ud.ball_x-1, y = 0)
+        return 'successed'
+
+class Move_Point_y(smach.State):
+    def __init__(self):
+        smach.State.__init__(self, outcomes=['successed', 'failed'], input_keys=['ball_x', 'ball_y', 'ball_theta'])
+        self.move_cmd = move_a_distance.move_a_distance()
+        rospy.loginfo("the Move Point_y is initial OK!")
+
+    def execute(self, ud):
+        rospy.loginfo("x = %s"%ud.ball_x)
+        rospy.loginfo("y = %s"%ud.ball_y)
+        # self.move_cmd.move_to(x=ud.ball_x, y=ud.ball_y)
+        self.move_cmd.move_to(x=0, y = ud.ball_y)
+        return 'successed'
+
+class Move_Point_Pro(smach.State):
+    def __init__(self):
+        self.flag = 0
+        smach.State.__init__(self, outcomes=['successed', 'failed'], input_keys=['ball_x', 'ball_y', 'ball_theta'])
+        self.move_cmd = move_a_distance.move_a_distance()
+        rospy.loginfo("the Move Point_Pro is initial OK!")
+
+    def execute(self, ud):
+        if self.flag == 0:
+            flag  = self.flag + 1
+            self.move_cmd.move_to(x=0.8)
+
+        else:
+            rospy.loginfo("x = %s"%ud.ball_x)
+            rospy.loginfo("y = %s"%ud.ball_y)
+            #self.move_cmd.move_to(x=-5)
+            #self.move_cmd.move_to(x=-3)
+        return 'successed'
+
+
+class First_Shovel(smach.State):
+    def __init__(self):
+        smach.State.__init__(self, outcomes=['successed', 'failed'])
+        self.cmd_shovel = control_srv.shovelControlSrv()
+        rospy.loginfo('the first shovel is initial ok!')
+
+    def execute(self, ud):
+        self.cmd_shovel.control_shovel(control_type=0)
+        rospy.sleep(2)
+        return 'successed'
+
+
+
+
+class Search_Ball(smach.State):
+    def __init__(self):
+        smach.State.__init__(self, outcomes=['successed', 'failed']
+                             , output_keys=['ball_x', 'ball_y', 'ball_theta'])
+        rospy.loginfo('Start search the ball!!')
+        # self.search_ball =
+
+    def execute(self, ud):
+        (ud.ball_x,ud.ball_y,ud.ball_theta) = findball.findBall().find_ball()
+
+        return 'successed'
+
+
+if __name__ == '__main__':
+    rospy.init_node('test1')
+
+    sm_top = smach.StateMachine(outcomes=['successed', 'failed'])
+    sm_top.userdata.ball_location_x = 0
+    sm_top.userdata.ball_location_y = 0
+    sm_top.userdata.ball_theta = 0
+    with sm_top:
+        smach.StateMachine.add("MOVE_POINT_PRO1",Move_Point_Pro(),
+                               transitions={"successed":"FindBall",
+                                            "failed":"failed"})
+
+        smach.StateMachine.add("FindBall", Search_Ball(),
+                               transitions={"successed": "MOVE_POINT_X",
+                                            "failed": "failed"},
+                               remapping={'ball_x': 'ball_location_x',
+                                          'ball_y': 'ball_location_y',
+                                          'ball_theta': 'ball_theta'})
+        # rospy.loginfo("x = %s" % sm_top.userdata.ball_location_x)
+        # rospy.loginfo("y = %s" % sm_top.userdata.ball_location_y)
+        smach.StateMachine.add('MOVE_POINT_X',
+                                       Move_Point_x(),
+                                       transitions={'successed': 'MOVE_POINT_Y',
+                                                    'failed': 'failed'},
+                                       remapping={'ball_x': 'ball_location_x',
+                                                  'ball_y': 'ball_location_y',
+                                                  'ball_theta': 'ball_theta'})
+
+        smach.StateMachine.add('MOVE_POINT_Y',
+                                       Move_Point_y(),
+                                       transitions={'successed': 'MOVE_ADJUST',
+                                                    'failed': 'failed'},
+                                       remapping={'ball_x': 'ball_location_x',
+                                                  'ball_y': 'ball_location_y',
+                                                  'ball_theta': 'ball_theta'})
+
+        smach.StateMachine.add("MOVE_ADJUST",Move_Adjust(),
+                               transitions={"successed":"ACTION",
+                                            "failed":"failed"})
+
+        action = smach.Concurrence(outcomes=['successed', 'failed'],
+                                   default_outcome='failed',
+                                   input_keys=['ball_location_x',
+                                               'ball_location_y',
+                                               'ball_theta'],
+                                   outcome_map={'successed':
+                                                    {'MOVE_TEST': 'successed',
+                                                     'SHOVEL_TEST': 'successed'}})
+
+        with action:
+            move_test = smach.StateMachine(outcomes=['successed', 'failed'],
+                                           input_keys=['ball_location_x',
+                                               'ball_location_y',
+                                               'ball_theta'])
+
+            with move_test:
+                smach.StateMachine.add('MOVE_POINT_PRO2',
+                                       Move_Point_Pro(),
+                                       transitions={'successed': 'successed',
+                                                    'failed': 'failed'},
+                                       remapping={'ball_x': 'ball_location_x',
+                                                  'ball_y': 'ball_location_y',
+                                                  'ball_theta': 'ball_theta'})
+
+            smach.Concurrence.add('MOVE_TEST', move_test)
+
+            shovel_test = smach.StateMachine(outcomes=['successed', 'failed'])
+
+            with shovel_test:
+                smach.StateMachine.add('FIRST_SHOVEL',
+                                       First_Shovel(),
+                                       transitions={'successed': 'successed',
+                                                    'failed': 'failed'})
+
+            smach.Concurrence.add('SHOVEL_TEST', shovel_test)
+        smach.StateMachine.add('ACTION', action,
+                               transitions={'failed': 'ACTION',
+                                            'successed': 'successed'})
+
+    sm_top.execute()

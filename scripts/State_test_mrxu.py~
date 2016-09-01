@@ -1,0 +1,102 @@
+#!/usr/bin/env python
+
+
+import rospy
+import smach
+import math
+import smach_ros
+from robot_move_pkg import move_a_distance
+from robot_move_pkg import turn_an_angular
+
+class First_Step(smach.State):
+    def __init__(self):
+        smach.State.__init__(self,outcomes=['successed','failed'])
+        self.move_cmd = move_a_distance.move_a_distance()
+        rospy.loginfo("the first step is initial OK!")
+
+    def execute(self, ud):
+        self.move_cmd.move_to(x = 2.0)
+        return 'successed'
+
+class Second_Step(smach.State):
+    def __init__(self):
+        smach.State.__init__(self,outcomes=['successed','failed'])
+        self.turn_cmd = move_a_distance.move_a_distance()
+        rospy.loginfo('the second step is initial ok!')
+
+    def execute(self, ud):
+        self.turn_cmd.move_to(y = 1.0)
+        return 'successed'
+
+
+class Third_Step(smach.State):
+    def __init__(self):
+        smach.State.__init__(self,outcomes=['successed','failed'])
+        self.move_cmd = move_a_distance.move_a_distance()	
+        rospy.loginfo('the third step is initial ok!')
+
+    def execute(self, ud):
+        self.move_cmd.move_to(x = -2.0)
+        return 'successed'
+
+
+
+class Fourth_Step(smach.State):
+    def __init__(self):
+        smach.State.__init__(self,outcomes=['successed','failed'])
+        self.move_cmd = move_a_distance.move_a_distance()
+
+        self.flag = 0
+
+        rospy.loginfo('the fourth step is initial ok!')
+
+    def execute(self, ud):
+        self.move_cmd.move_to(y = -1.0)
+        if self.flag == 1:
+            return 'successed'
+        else:
+            return 'failed'
+
+
+
+class Fifth_Step(smach.State):
+    def __init__(self):
+        smach.State.__init__(self,outcomes=['successed','failed'])
+        self.move_cmd = turn_an_angular.turn_an_angular()
+        rospy.loginfo('the fifth step is initial ok!')
+
+    def execute(self, ud):
+        self.move_cmd.turn(angular= math.pi/4)
+        return 'successed'
+
+
+if __name__ == '__main__':
+    rospy.init_node('test1')
+    test1 = smach.StateMachine(outcomes=['successed','failed'])
+    with test1:
+        smach.StateMachine.add('FIRST_STEP',
+                               First_Step(),
+                               transitions={'successed':'SECOND_STEP',
+                                            'failed':'failed'})
+
+        smach.StateMachine.add('SECOND_STEP',
+                               Second_Step(),
+                               transitions={'successed':'THIRD_STEP',
+                                            'failed':'failed'})
+
+        smach.StateMachine.add('THIRD_STEP',
+                               Third_Step(),
+                               transitions={'successed':'FOURTH_STEP',
+                                            'failed':'failed'})
+
+        smach.StateMachine.add('FOURTH_STEP',
+                               Fourth_Step(),
+                               transitions={'successed':'FIFTH_STEP',
+                                            'failed':'failed'})
+
+        smach.StateMachine.add('FIFTH_STEP',
+                               Fifth_Step(),
+                               transitions={'successed':'successed',
+                                            'failed':'failed'})
+
+    test1.execute()
